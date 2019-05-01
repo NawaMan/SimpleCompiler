@@ -26,7 +26,7 @@ import net.nawaman.task.TaskOptions;
 /**
  * Options for the compilation.
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public interface CompilationOptions extends TaskOptions {
 	

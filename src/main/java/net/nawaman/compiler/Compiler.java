@@ -27,7 +27,7 @@ import net.nawaman.task.TaskEntry;
 /**
  * A compiler
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public class Compiler extends Process implements Serializable {
 	

@@ -24,7 +24,7 @@ import java.util.*;
 /**
  * Source code - It handle new line location and coordinate calculation
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 abstract public class Code implements Serializable {
 	

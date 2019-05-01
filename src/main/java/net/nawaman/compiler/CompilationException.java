@@ -21,7 +21,7 @@ package net.nawaman.compiler;
 /**
  * Exception related to the compilation
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public class CompilationException extends RuntimeException {
 	public CompilationException()                                  { super();                 }

@@ -31,7 +31,7 @@ import net.nawaman.task.*;
  * the codes or may not be attached to any thing. CompilationData separate the data based on what it is attached (or
  * belonged to) and allow the data to be accessed using one unified reference.
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 @SuppressWarnings("unchecked")
 abstract public class CompilationData implements ProcessDatas {

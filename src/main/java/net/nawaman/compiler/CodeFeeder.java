@@ -28,7 +28,7 @@ import net.nawaman.regparser.Util;
 /**
  * Code feeder provides source code based on name access
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 abstract public class CodeFeeder {
 	

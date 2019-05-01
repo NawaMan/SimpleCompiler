@@ -39,7 +39,7 @@ import net.nawaman.task.ProcessContext;
  * This class is call Compilation product because it manage data for the compilation and the result of the compilation
  * is one of those managed by this class.
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public class CompileProduct extends CompilationData.Simple implements CompilationContext, ProcessContext {
 	

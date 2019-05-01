@@ -20,7 +20,7 @@ package net.nawaman.compiler;
 
 /** Reference to the code
  *
- * @author nawaman
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public interface CodeRef extends FeederRef {
 	

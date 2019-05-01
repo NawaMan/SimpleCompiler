@@ -28,7 +28,7 @@ import java.util.HashMap;
  * refer to a another code (using the name), the compiler will look for it in that code feeder first then the other
  * feeders. Moreover, there is no way for a code to explicitly refer to another code in another feeder.
  *
- * @author Nawapunth Manusitthipol
+ * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public class CodeFeeders extends CompilationData.Simple {
 
