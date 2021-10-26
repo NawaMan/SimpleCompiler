@@ -5,7 +5,9 @@ import java.io.Serializable;
 /** Reference to data in CompilerData */
 final public class CompileDataRef implements net.nawaman.task.DataRef, Serializable {
 	
-	CompileDataRef() {}
+    private static final long serialVersionUID = 5350765069157825493L;
+    
+    CompileDataRef() {}
 	public CompileDataRef(FeederRef pTargetRef, String pDataName) {
 		if(pTargetRef == null) throw new NullPointerException();
 		this.TargetRef = pTargetRef;

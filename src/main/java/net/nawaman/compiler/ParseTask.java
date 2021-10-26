@@ -6,7 +6,9 @@ import net.nawaman.task.TaskOptions;
 /** Parsing Task */
 public class ParseTask extends TaskForCodeUsingRegParser {
 
-	/** Constructs a TastParse */
+    private static final long serialVersionUID = 8614054055248957849L;
+
+    /** Constructs a TastParse */
 	public ParseTask(String pName) {
 		super(pName, new Class<?>[] { String.class }, null, new Class<?>[] { ParseResult.class });
 	}

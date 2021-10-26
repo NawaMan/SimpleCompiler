@@ -3,7 +3,9 @@ package net.nawaman.compiler;
 /** Tasks that will be performed on Code's Data */
 abstract public class TaskForCode extends TaskForCompiler {
 	
-	/** Checks if the task is a code task */
+    private static final long serialVersionUID = 6467687317432300997L;
+
+    /** Checks if the task is a code task */
 	@Override public boolean isCodeTask() { return true; }
 
 	// SubClass --------------------------------------------------------------------------------------------------------
@@ -11,7 +13,9 @@ abstract public class TaskForCode extends TaskForCompiler {
 	/** Simple CodeTask */
 	static abstract public class Simple extends TaskForCode {
 
-		public Simple(String pName) {
+        private static final long serialVersionUID = 7067146815447849006L;
+        
+        public Simple(String pName) {
 			this(pName, null, null, null);
 		}
 		public Simple(String pName, Class<?>[] pInputTypes) {

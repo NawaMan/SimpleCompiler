@@ -24,7 +24,10 @@ package net.nawaman.compiler;
  * @author Nawapunth Manusitthipol (https://github.com/NawaMan)
  */
 public class CompilationException extends RuntimeException {
-	public CompilationException()                                  { super();                 }
+    
+    private static final long serialVersionUID = 6358030649874779799L;
+    
+    public CompilationException()                                  { super();                 }
 	public CompilationException(String pMessage)                   { super(pMessage);         }
 	public CompilationException(String pMessage, Throwable pCuase) { super(pMessage, pCuase); }
 

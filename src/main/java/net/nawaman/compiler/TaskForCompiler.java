@@ -10,7 +10,9 @@ import net.nawaman.task.TaskOptions;
 /** Tasks that will be performed on compiler */
 abstract public class TaskForCompiler implements Task, Serializable {
 
-	/** Returns the name of the task */
+    private static final long serialVersionUID = -1408230881426382652L;
+
+    /** Returns the name of the task */
 	abstract public String getName();
 	
 	// Kind ----------------------------------------------------------------------------------------
@@ -94,7 +96,9 @@ abstract public class TaskForCompiler implements Task, Serializable {
 	/** Simple CompileTask */
 	static abstract public class Simple extends TaskForCompiler {
 		
-		public Simple(String pName) {
+        private static final long serialVersionUID = 7509734491476668310L;
+        
+        public Simple(String pName) {
 			this(pName, null, null, null);
 		}
 		public Simple(String pName, Class<?>[] pInputTypes) {

@@ -10,7 +10,10 @@ public interface FeederRef extends Serializable {
 	
 	/** A simple implementation of the reference to the code */
 	static public class Simple implements FeederRef {
-		public Simple(int pFeederIndex) {
+	    
+        private static final long serialVersionUID = -8354045055317562591L;
+        
+        public Simple(int pFeederIndex) {
 			this.FeederIndex = pFeederIndex;
 		}
 		int FeederIndex;

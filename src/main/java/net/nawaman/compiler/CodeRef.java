@@ -31,7 +31,10 @@ public interface CodeRef extends FeederRef {
 	
 	/** A simple implementation of the reference to the code */
 	static public class Simple extends FeederRef.Simple implements CodeRef {
-		public Simple(int pFeederIndex, String pCodeName) {
+	    
+        private static final long serialVersionUID = -4249986692032041372L;
+        
+        public Simple(int pFeederIndex, String pCodeName) {
 			super(pFeederIndex);
 			this.CodeName = pCodeName;
 		}
@@ -41,7 +44,9 @@ public interface CodeRef extends FeederRef {
 	}
 	/** A simple implementation of the reference to the code */
 	static public class Share implements CodeRef {
-		public Share(FeederRef pFeederRef, String pCodeName) {
+        private static final long serialVersionUID = -2733485597822827007L;
+
+        public Share(FeederRef pFeederRef, String pCodeName) {
 			this.FeederRef = pFeederRef;
 			this.CodeName  = pCodeName;
 		}

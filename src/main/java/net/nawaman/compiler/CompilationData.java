@@ -255,7 +255,6 @@ abstract public class CompilationData implements ProcessDatas {
 		}
 	
 		/**{@inheritDoc}*/ 
-		@SuppressWarnings("unchecked")
 		@Override protected boolean ensureCodeDatas() {
 			if(this.CodeDatas == null) this.CodeDatas = new HashMap[this.getFeederCount()][];
 			return true;
@@ -330,7 +329,6 @@ abstract public class CompilationData implements ProcessDatas {
 	/** CompilationData that holds its own data by derive the structure (number of feeder and codes) from others */
 	static public class Derive extends CompilationData.Simple {
 		
-		@SuppressWarnings("unchecked")
 		public Derive(CompilationData pDerived) {
 			if(pDerived == null) throw new NullPointerException();
 			this.FeederDatas = new HashMap[pDerived.getFeederCount()];
@@ -405,7 +403,6 @@ abstract public class CompilationData implements ProcessDatas {
 		return this.setCodeData(pCodeRef.getFeederIndex(), pCodeRef.getCodeName(), pDataName, pValue);
 	}
 	/** Add or change the value of the code data associated with pDataName */
-	@SuppressWarnings("unchecked")
 	public Object setCodeData(int pFeederIndex, String pCodeName, String pDataName, Object pValue) {
 		if((pCodeName == null) || (pDataName == null)) throw new NullPointerException();
 		if((pFeederIndex < 0) || (pFeederIndex >= this.getFeederCount()))

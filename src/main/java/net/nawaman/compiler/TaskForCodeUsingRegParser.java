@@ -16,7 +16,9 @@ import net.nawaman.regparser.RegParser;
  **/
 abstract public class TaskForCodeUsingRegParser extends TaskForCode.Simple {
 
-	/** Constructs a TastParse */
+    private static final long serialVersionUID = -5307127890652207316L;
+
+    /** Constructs a TastParse */
 	protected TaskForCodeUsingRegParser(String pName, Class<?>[] pInputTypes, Object[] pInputDefaults,
 			Class<?>[] pOutputTypes) {
 		super(pName, pInputTypes, pInputDefaults, pOutputTypes);

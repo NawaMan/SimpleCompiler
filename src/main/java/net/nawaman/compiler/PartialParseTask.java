@@ -6,7 +6,9 @@ import net.nawaman.task.TaskOptions;
 
 public class PartialParseTask extends ParseTask {
 
-	/** Constructs a TastParse */
+    private static final long serialVersionUID = 3214095522124866617L;
+
+    /** Constructs a TastParse */
 	public PartialParseTask(String pName) {
 		super(pName,
 			new Class<?>[] {      String.class, Integer.class, Integer.class },

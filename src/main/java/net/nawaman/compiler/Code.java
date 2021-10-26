@@ -28,7 +28,9 @@ import java.util.*;
  */
 abstract public class Code implements Serializable {
 	
-	static public final String UnknownCodeName = "<UNKNOWN CODE>";
+    private static final long serialVersionUID = -256228344474340709L;
+    
+    static public final String UnknownCodeName = "<UNKNOWN CODE>";
 	
 	protected Code() {}
 	
@@ -45,7 +47,9 @@ abstract public class Code implements Serializable {
 	/** A normal code */
 	static public class Simple extends Code {
 	
-		/** Construct a normal code */
+        private static final long serialVersionUID = -8712580182626064826L;
+
+        /** Construct a normal code */
 		public Simple(String pCodeName, CharSequence pSource) {
 			this.CodeName  = pCodeName;
 			this.Source = (pSource == null)?"":pSource.toString();
@@ -61,7 +65,9 @@ abstract public class Code implements Serializable {
 	/** The code that is an adjustment of another code */
 	static abstract public class Adjusted extends Code {
 		
-		/** Returns the original code of the given position (null means local) */
+        private static final long serialVersionUID = -104844838415449899L;
+        
+        /** Returns the original code of the given position (null means local) */
 		abstract public CodeRef getOriginalRef(int pThisPos);
 		/** Returns the position of the given position of the original */
 		abstract public int     getOriginalPos(int pThisPos);

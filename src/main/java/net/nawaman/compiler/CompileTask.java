@@ -7,7 +7,9 @@ import net.nawaman.task.TaskOptions;
 // OUT = (pOutputClass or [pOutputClass, ParseResule]) depending on pIsToSaveParseResult
 public class CompileTask extends TaskForCodeUsingRegParser {
 
-	/** Constructs a TastParse */
+    private static final long serialVersionUID = 5914931677129433256L;
+
+    /** Constructs a TastParse */
 	public CompileTask(String pName, Class<?> pOutputClass) {
 		this(pName, true, true, pOutputClass);
 	}

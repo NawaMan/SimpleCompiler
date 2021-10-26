@@ -31,7 +31,9 @@ import net.nawaman.task.TaskEntry;
  */
 public class Compiler extends Process implements Serializable {
 	
-	public Compiler(String pName, TaskEntry ... pTEs) {
+    private static final long serialVersionUID = -3754986809952649257L;
+
+    public Compiler(String pName, TaskEntry ... pTEs) {
 		this.Name     = pName;
 		this.TEntries = (pTEs == null)?null:pTEs.clone();
 	}

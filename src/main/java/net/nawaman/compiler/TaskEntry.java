@@ -7,7 +7,9 @@ import net.nawaman.task.Task;
 /** TaskEntry for the compilation */
 final public class TaskEntry extends net.nawaman.task.TaskEntry implements Serializable {
 	
-	public TaskEntry(TaskForCompiler pTask) {
+    private static final long serialVersionUID = 1310760111148787499L;
+
+    public TaskEntry(TaskForCompiler pTask) {
 		this(pTask, null, null);
 	}
 	

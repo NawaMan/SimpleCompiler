@@ -8,7 +8,9 @@ import net.nawaman.task.TaskOptions;
 /** Task to parse a token (refered by ParserType name) */
 public class TokenParseTask extends ParseTask {
 
-	/** Constructs a TastParse */
+    private static final long serialVersionUID = 2447728972668409939L;
+
+    /** Constructs a TastParse */
 	public TokenParseTask(String pName) {
 		super(pName,
 			new Class<?>[] { String.class, String.class, Integer.class, Integer.class },

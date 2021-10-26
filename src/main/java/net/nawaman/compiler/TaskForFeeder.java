@@ -3,7 +3,9 @@ package net.nawaman.compiler;
 /** Tasks that will be performed on Code Feeder's Data */
 abstract public class TaskForFeeder extends TaskForCompiler {
 	
-	/** Checks if the task is a code task */
+    private static final long serialVersionUID = -7442334261036887978L;
+
+    /** Checks if the task is a code task */
 	@Override public boolean isFeederTask() { return true; }
 
 	// SubClass --------------------------------------------------------------------------------------------------------
@@ -11,7 +13,9 @@ abstract public class TaskForFeeder extends TaskForCompiler {
 	/** Simple FeederTask */
 	static abstract public class Simple extends TaskForFeeder {
 		
-		public Simple(String pName) {
+        private static final long serialVersionUID = 1760648296087697845L;
+        
+        public Simple(String pName) {
 			this(pName, null, null, null);
 		}
 		public Simple(String pName, Class<?>[] pInputTypes) {
