@@ -34,7 +34,7 @@ abstract public class TaskForCodeUsingRegParser extends TaskForCode.Simple {
 	/** Set the Parser type and other types it may use */
 	final protected void setParserType(PType T, PTypeProvider[] pTProviders, PType[] pTypes) {
 		// Set the parser
-		this.Parser = RegParser.newRegParser(new PTypeRef.Simple(T.getName()));
+		this.Parser = RegParser.newRegParser(new PTypeRef.Simple(T.name()));
 		// Don't care if provider already exist
 		PType[] Ts = new PType[((pTypes == null)?0:pTypes.length) + 1];
 		if(pTypes != null) System.arraycopy(pTypes, 0, Ts, 0, pTypes.length);

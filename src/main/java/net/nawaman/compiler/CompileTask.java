@@ -1,6 +1,6 @@
 package net.nawaman.compiler;
 
-import net.nawaman.regparser.ParseResult;
+import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
 
 // IN  = (String or ParserResult) depending on pIsFromCode
@@ -46,12 +46,12 @@ public class CompileTask extends TaskForCodeUsingRegParser {
 				pContext.reportFatalError("Unmatch!!", null);
 				return null;
 			}
-			if(PResult.getEndPosition() != Source.length()) {
+			if(PResult.endPosition() != Source.length()) {
 				
-				String S = Source.subSequence(PResult.getEndPosition(), Source.length()).toString().trim();
+				String S = Source.subSequence(PResult.endPosition(), Source.length()).toString().trim();
 				if(S.length() != 0) {
 					pContext.reportError("Left over token <CompileTask:51>: " +
-							pContext.getCurrentCode().getCodePositionByCursor(PResult.getEndPosition())
+							pContext.getCurrentCode().getCodePositionByCursor(PResult.endPosition())
 						, null);
 					return null;
 				}

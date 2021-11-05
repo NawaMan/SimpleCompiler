@@ -1,7 +1,7 @@
 package net.nawaman.compiler;
 
 import net.nawaman.regparser.PTypeProvider;
-import net.nawaman.regparser.ParseResult;
+import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
 
 public class PartialParseTask extends ParseTask {
@@ -36,8 +36,8 @@ public class PartialParseTask extends ParseTask {
 			pContext.reportFatalError("Unmatch!!", null);
 			return null;
 		}
-		if(PR.getEndPosition() != ((EndPos < 0)?Source.length():EndPos)) {
-			((CompileProduct)pContext).reportError("Left over token <ParialParseTask:38>: ", null, PR.getEndPosition());
+		if(PR.endPosition() != ((EndPos < 0)?Source.length():EndPos)) {
+			((CompileProduct)pContext).reportError("Left over token <ParialParseTask:38>: ", null, PR.endPosition());
 			return null;
 		}
 		return new Object[] { PR };

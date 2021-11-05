@@ -1,6 +1,7 @@
 package net.nawaman.compiler;
 
 import net.nawaman.regparser.*;
+import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
 
 /** Parsing Task */
@@ -35,10 +36,10 @@ public class ParseTask extends TaskForCodeUsingRegParser {
 			pContext.reportFatalError("Unmatch!!", null);
 			return null;
 		}
-		if(PR.getEndPosition() != Source.length()) {
-			String S = Source.subSequence(PR.getEndPosition(), Source.length()).toString().trim();
+		if(PR.endPosition() != Source.length()) {
+			String S = Source.subSequence(PR.endPosition(), Source.length()).toString().trim();
 			if(S.length() != 0) {
-				((CompileProduct)pContext).reportError("Left over token <CompileTask:33> ", null, PR.getEndPosition());
+				((CompileProduct)pContext).reportError("Left over token <CompileTask:33> ", null, PR.endPosition());
 				return null;
 			}
 		}

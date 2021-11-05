@@ -2,7 +2,7 @@ package net.nawaman.compiler;
 
 import net.nawaman.regparser.PType;
 import net.nawaman.regparser.PTypeProvider;
-import net.nawaman.regparser.ParseResult;
+import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
 
 /** Task to parse a token (refered by ParserType name) */
@@ -45,8 +45,8 @@ public class TokenParseTask extends ParseTask {
 			pContext.reportFatalError("Unmatch!!", null);
 			return null;
 		}
-		if(PR.getEndPosition() != ((EndPos < 0)?Source.length():EndPos)) {
-			((CompileProduct)pContext).reportError("Left over token <TokenParseTask:47>: ", null, PR.getEndPosition());
+		if(PR.endPosition() != ((EndPos < 0)?Source.length():EndPos)) {
+			((CompileProduct)pContext).reportError("Left over token <TokenParseTask:47>: ", null, PR.endPosition());
 			return null;
 		}
 		return new Object[] { PR };
