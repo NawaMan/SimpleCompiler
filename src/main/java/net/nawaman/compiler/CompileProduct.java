@@ -22,6 +22,7 @@ import java.util.HashMap;
 
 import net.nawaman.compiler.CompilerMessage.MessageKind;
 import net.nawaman.regparser.CompilationContext;
+import net.nawaman.regparser.result.Coordinate;
 import net.nawaman.task.ProcessContext;
 
 /**
@@ -314,6 +315,31 @@ public class CompileProduct extends CompilationData.Simple implements Compilatio
 		int    Position = this.getCurrentCode().getNearestValidPositionOf(pCol, pRow);
 		String Message  = this.getProblemMessage(pMessage, pCause, Position); 
 		super.reportMessage(new CompilerMessage(MessageKind.FATALERROR, Message, pCause, this, Position));
+	}
+
+	/** Reports a message in a specific format that each information can be retrieved back */
+	public void reportMessage(String pMessage, Throwable pCause, Coordinate coordinate) {
+		int col = Coordinate.colOf(coordinate);
+		int row = Coordinate.rowOf(coordinate);
+		this.reportMessage(pMessage, pCause, col, row);
+	}
+	/** Reports a warning in a specific format that each information can be retrieved back */
+	public void reportWarning(   String pMessage, Throwable pCause, Coordinate coordinate) {
+		int col = Coordinate.colOf(coordinate);
+		int row = Coordinate.rowOf(coordinate);
+		this.reportWarning(pMessage, pCause, col, row);
+	}
+	/** Reports a error in a specific format that each information can be retrieved back */
+	public void reportError(     String pMessage, Throwable pCause, Coordinate coordinate) {
+		int col = Coordinate.colOf(coordinate);
+		int row = Coordinate.rowOf(coordinate);
+		this.reportError(pMessage, pCause, col, row);
+	}
+	/** Reports a fatal error in a specific format that each information can be retrieved back */
+	public void reportFatalError(String pMessage, Throwable pCause, Coordinate coordinate) {
+		int col = Coordinate.colOf(coordinate);
+		int row = Coordinate.rowOf(coordinate);
+		this.reportFatalError(pMessage, pCause, col, row);
 	}
 	
 	/** Retrieves the message from a formated problem message */
