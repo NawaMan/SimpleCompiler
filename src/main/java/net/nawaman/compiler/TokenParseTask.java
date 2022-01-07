@@ -1,7 +1,7 @@
 package net.nawaman.compiler;
 
-import net.nawaman.regparser.PType;
-import net.nawaman.regparser.PTypeProvider;
+import net.nawaman.regparser.ParserType;
+import net.nawaman.regparser.ParserTypeProvider;
 import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
 
@@ -19,7 +19,7 @@ public class TokenParseTask extends ParseTask {
 		);
 	}
 	/** Constructs a PartialParseTask */
-	public TokenParseTask(String pName, PTypeProvider pTProvider) {
+	public TokenParseTask(String pName, ParserTypeProvider pTProvider) {
 		this(pName);
 		this.setTypeProvider(pTProvider);
 	}
@@ -33,7 +33,7 @@ public class TokenParseTask extends ParseTask {
 		CharSequence Source = (pIns[1] instanceof CharSequence)?(CharSequence)pIns[1]:(pIns[1] == null)?"":pIns[1].toString();
 		int          Offset = (pIns[2] instanceof Integer     )?(Integer)pIns[2]     :0;
 		int          EndPos = (pIns[3] instanceof Integer     )?(Integer)pIns[3]     :Source.length();
-		PType        PT     = this.getTypeProvider().getType(PName);
+		ParserType        PT     = this.getTypeProvider().type(PName);
 		
 		if(PT == null) {
 			pContext.reportFatalError("Unknown token type '"+PName+"'", null);

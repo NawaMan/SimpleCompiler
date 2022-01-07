@@ -4,9 +4,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import net.nawaman.regparser.Checker;
-import net.nawaman.regparser.PType;
-import net.nawaman.regparser.PTypeProvider;
-import net.nawaman.regparser.PTypeRef;
+import net.nawaman.regparser.ParserType;
+import net.nawaman.regparser.ParserTypeProvider;
+import net.nawaman.regparser.ParserTypeRef;
 import net.nawaman.regparser.RegParser;
 
 /**
@@ -32,14 +32,14 @@ abstract public class TaskForCodeUsingRegParser extends TaskForCode.Simple {
 		this.Parser = (pChecker instanceof RegParser)?(RegParser)pChecker:RegParser.newRegParser(pChecker);
 	}
 	/** Set the Parser type and other types it may use */
-	final protected void setParserType(PType T, PTypeProvider[] pTProviders, PType[] pTypes) {
+	final protected void setParserType(ParserType T, ParserTypeProvider[] pTProviders, ParserType[] pTypes) {
 		// Set the parser
-		this.Parser = RegParser.newRegParser(new PTypeRef.Simple(T.name()));
+		this.Parser = new ParserTypeRef.Simple(T.name()).asRegParser();
 		// Don't care if provider already exist
-		PType[] Ts = new PType[((pTypes == null)?0:pTypes.length) + 1];
+		ParserType[] Ts = new ParserType[((pTypes == null)?0:pTypes.length) + 1];
 		if(pTypes != null) System.arraycopy(pTypes, 0, Ts, 0, pTypes.length);
 		Ts[Ts.length - 1] = T;
-		this.Provider = (pTProviders == null)?new PTypeProvider.Simple(Ts):new PTypeProvider.Library(Ts, pTProviders); 
+		this.Provider = (pTProviders == null)?new ParserTypeProvider.Simple(Ts):new ParserTypeProvider.Library(Ts, pTProviders); 
 	}
 	/**
 	 * Set the Parser type using the type name. The type and other types it may need MUST be in the TypeProvider set by
@@ -47,42 +47,42 @@ abstract public class TaskForCodeUsingRegParser extends TaskForCode.Simple {
 	 **/
 	final protected void setParserType(String pTypeName) {
 		// Set the parser
-		this.Parser = RegParser.newRegParser(new PTypeRef.Simple(pTypeName));
+		this.Parser = new ParserTypeRef.Simple(pTypeName).asRegParser();
 	}
 	/** Returns the parser used to perform the task */
 	final public RegParser getParser() {
-		if(this.Parser == null) this.Parser = RegParser.newRegParser(new PTypeRef.Simple(this.getName()));
+		if(this.Parser == null) this.Parser = ParserTypeRef.of(this.getName()).asRegParser();
 		return this.Parser;
 	}
 	/** Returns the parser type used to perform the task */
-	final public PType getParserType() {
-		return this.Provider.getType(this.getName());
+	final public ParserType getParserType() {
+		return this.Provider.type(this.getName());
 	}
 	
 	
-	PTypeProvider Provider = null;
+	ParserTypeProvider Provider = null;
 	
 	/** Specifically set the type provider */
-	final protected void setTypeProvider(PTypeProvider pProvider) {
+	final protected void setTypeProvider(ParserTypeProvider pProvider) {
 		if(this.Provider != null) return;
 		this.Provider = pProvider;
 	}
-	public PTypeProvider getTypeProvider() { return this.Provider; }
+	public ParserTypeProvider getTypeProvider() { return this.Provider; }
 	
 	// Load and save ---------------------------------------------------------------------------------------------------
 	
 	final protected boolean tryToLoadFrom(InputStream pIS) {
 		if(this.Provider != null) return false;
 		try {
-			this.Provider = PTypeProvider.Simple.loadTypeProviderFromStream(pIS);
-			if(this.Provider.getType(this.getName()) == null) {
+			this.Provider = ParserTypeProvider.Simple.loadTypeProviderFromStream(pIS);
+			if(this.Provider.type(this.getName()) == null) {
 				// Revert and return false;
 				this.Provider = null;
 				this.Parser   = null;
 				return false;
 			}
 			// Set the parser and return true
-			this.Parser = RegParser.newRegParser(new PTypeRef.Simple(this.getName()));
+			this.Parser = new ParserTypeRef.Simple(this.getName()).asRegParser();
 			return true;
 		} catch(Exception E) {}
 		return false;
@@ -91,7 +91,7 @@ abstract public class TaskForCodeUsingRegParser extends TaskForCode.Simple {
 	final protected boolean tryToSaveTo(OutputStream pOS) {
 		if(this.Provider == null) return false;
 		try {
-			PTypeProvider.Simple.saveRPTypeProviderToStream(pOS, this.Provider);
+			ParserTypeProvider.Simple.saveTypeProviderToStream(pOS, this.Provider);
 			return true;
 		} catch(Exception E) {
 			System.out.println(E.toString());

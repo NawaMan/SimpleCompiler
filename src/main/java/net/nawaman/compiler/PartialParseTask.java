@@ -1,6 +1,6 @@
 package net.nawaman.compiler;
 
-import net.nawaman.regparser.PTypeProvider;
+import net.nawaman.regparser.ParserTypeProvider;
 import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
 
@@ -18,7 +18,7 @@ public class PartialParseTask extends ParseTask {
 	}
 	
 	/** Constructs a PartialParseTask */
-	public PartialParseTask(String pName, PTypeProvider pTProvider) {
+	public PartialParseTask(String pName, ParserTypeProvider pTProvider) {
 		this(pName);
 		this.setTypeProvider(pTProvider);
 	}

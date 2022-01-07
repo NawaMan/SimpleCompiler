@@ -2,7 +2,7 @@ package net.nawaman.compiler;
 
 import java.io.Serializable;
 
-import net.nawaman.regparser.PType;
+import net.nawaman.regparser.ParserType;
 import net.nawaman.task.ProcessContext;
 import net.nawaman.task.Task;
 import net.nawaman.task.TaskOptions;
@@ -87,7 +87,7 @@ abstract public class TaskForCompiler implements Task, Serializable {
 	// Types ---------------------------------------------------------------------------------------
 
 	/** Create a entries. **/
-	final public PType[] newTypes(PType ... pTypes) {
+	final public ParserType[] newTypes(ParserType ... pTypes) {
 		return pTypes;
 	}
 	

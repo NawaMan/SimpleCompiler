@@ -1,5 +1,7 @@
 package net.nawaman.compiler;
 
+import static net.nawaman.regparser.RegParser.newRegParser;
+
 import net.nawaman.regparser.*;
 import net.nawaman.regparser.result.ParseResult;
 import net.nawaman.task.TaskOptions;
@@ -26,9 +28,9 @@ public class ParseTask extends TaskForCodeUsingRegParser {
 		if(pIns[0] == null) return null;
 		CharSequence Source = (pIns[0] instanceof CharSequence)?(CharSequence)pIns[0]:(pIns[0] == null)?"":pIns[0].toString();
 		
-		RegParser TheParser = RegParser.newRegParser(
+		RegParser TheParser = newRegParser(
 				"#Sub",	// Need and extra group to parse properly
-				RegParser.newRegParser(new PTypeRef.Simple(this.getName()))
+				ParserTypeRef.of(this.getName()).asRegParser()
 			);
 		ParseResult PR = TheParser.parse(Source, this.Provider);
 		

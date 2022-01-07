@@ -1,6 +1,6 @@
 package net.nawaman.compiler;
 
-import net.nawaman.regparser.Util;
+import net.nawaman.regparser.utils.Util;
 
 /** Message generated from a compiler */
 public class CompilerMessage {
